@@ -5,7 +5,11 @@ export class Welcome extends Component {
     return (
       <div>
         <p> Hello, {this.props.name || "user!"}</p>
-        {this.props.age > 18 ? <Age age={this.props.age} /> : ""}
+        {this.props.age > 18 && this.props.age ? (
+          <Age age={this.props.age} />
+        ) : (
+          ""
+        )}
       </div>
     );
   }
