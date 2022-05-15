@@ -5,6 +5,7 @@ export class Hello extends Component {
     return (
       <div>
         <h1>Hello,World!</h1>
+        <p>What a beatiful day!</p>
       </div>
     );
   }
