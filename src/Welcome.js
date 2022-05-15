@@ -8,7 +8,10 @@ export class Welcome extends Component {
     return (
       <div>
         <p> Hello, {this.props.name || "user!"}</p>
-        {this.props.age >= 18 && this.props.age <= 65 && this.props.age ? (
+        {this.props.age >= 18 &&
+        this.props.age <= 65 &&
+        this.props.age &&
+        this.props.name === "John" ? (
           <Age age={this.props.age} />
         ) : (
           ""

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Hello from "./Hello";
 import Welcome from "./Welcome";
 
-const name = <strong>Andrea</strong>;
+const name = <strong>John</strong>;
 export class App extends Component {
   render() {
     return (
