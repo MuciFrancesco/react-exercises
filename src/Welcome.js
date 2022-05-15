@@ -5,6 +5,7 @@ export class Welcome extends Component {
     return (
       <div>
         <p> Hello, {this.props.name || "user!"}</p>
+        <p>Your age is {this.props.age || "i don't know,sorry"}</p>
       </div>
     );
   }
