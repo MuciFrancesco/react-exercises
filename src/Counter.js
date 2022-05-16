@@ -5,14 +5,15 @@ export class Counter extends Component {
   state = {
     count: this.props.initialValue || 0,
   };
-  constructor(props) {
-    super(props);
+
+  componentDidMount() {
     setInterval(() => {
       this.setState({
         count: this.state.count + (this.props.incrementBy || 1),
       });
     }, this.props.timeOut);
   }
+
   render() {
     return (
       <div>
