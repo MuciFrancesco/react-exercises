@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Hello from "./Hello";
 import Welcome from "./Welcome";
 import Counter from "./Counter";
+import ClickCounter from "./ClickCounter";
 
 export class App extends Component {
   render() {
@@ -10,6 +11,7 @@ export class App extends Component {
         <Hello />
         <Welcome name='John' age='22' />
         <Counter initialValue={0} incrementBy={1} timeOut={1000} />
+        <ClickCounter />
       </div>
     );
   }
