@@ -9,7 +9,7 @@ export class App extends Component {
       <div>
         <Hello />
         <Welcome name='John' age='22' />
-        <Counter />
+        <Counter initialValue={0} incrementBy={1} timeOut={1000} />
       </div>
     );
   }
