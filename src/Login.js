@@ -18,6 +18,13 @@ export class Login extends Component {
   componentDidUpdate() {
     console.log(this.state);
   }
+  resetForm = () => {
+    this.setState({
+      username: "",
+      password: "",
+      remember: false,
+    });
+  };
 
   render() {
     return (
@@ -43,6 +50,9 @@ export class Login extends Component {
           ></input>
           <button disabled={!this.state.username || !this.state.password}>
             Login
+          </button>
+          <button type='button' onClick={this.resetForm}>
+            Reset
           </button>
         </form>
       </div>
