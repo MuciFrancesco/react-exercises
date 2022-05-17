@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import Age from "./Age";
 
 export class Welcome extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: props.value };
+  }
+
   render() {
     return (
       <div>
-        <p> Hello, {this.props.name || "user!"}</p>
-        <Age age={this.props.age} />
+        <h1>Hello,{this.props.value}</h1>
       </div>
     );
   }
