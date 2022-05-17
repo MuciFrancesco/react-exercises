@@ -16,7 +16,7 @@ export class UncontrolledLogin extends Component {
         <h3>Uncontrolled Form</h3>
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
-          <input type='text' name='username'></input>
+          <input autoFocus type='text' name='username'></input>
           <label>Password:</label>
           <input type='password' name='password'></input>
           <input type='checkbox' name='remember'></input>
