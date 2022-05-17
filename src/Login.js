@@ -41,6 +41,9 @@ export class Login extends Component {
             checked={this.state.remember}
             onChange={this.handleChange}
           ></input>
+          <button disabled={!this.state.username || !this.state.password}>
+            Login
+          </button>
         </form>
       </div>
     );
