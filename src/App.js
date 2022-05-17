@@ -5,6 +5,7 @@ import Counter from "./Counter";
 import ClickCounter from "./ClickCounter";
 import ClickTracker from "./ClickTracker";
 import { InteractiveWelcome } from "./InteractiveWelcome";
+import Login from "./Login";
 
 export class App extends Component {
   render() {
@@ -16,6 +17,7 @@ export class App extends Component {
         <ClickCounter />
         <ClickTracker />
         <InteractiveWelcome />
+        <Login />
       </div>
     );
   }
