@@ -10,16 +10,20 @@ export class ToDoList extends Component {
     this.setState({
       array: [...this.state.array, input],
     });
+    e.target.reset();
   };
+
   render() {
     const names = this.state.array.map((name) => <li>{name}</li>);
     return (
       <>
         <div className='insertIntoArray'>
-          <form onSubmit={this.insertIntoArray}>
+          <form onSubmit={this.insertIntoArray.bind(this)}>
             <label>Inserisci un elemento:</label>
-            <input name='insert' type='text'></input>
-            <button>Inserisci</button>
+            <input type='text' name='insert'></input>
+            <button onClick={this.inputReset} name='btn'>
+              Inserisci
+            </button>
           </form>
         </div>
         <ul>{names}</ul>
