@@ -8,6 +8,10 @@ import { InteractiveWelcome } from "./InteractiveWelcome";
 import Login from "./Login";
 
 export class App extends Component {
+  onLogin = (state) => {
+    console.log(state);
+  };
+
   render() {
     return (
       <div>
@@ -17,7 +21,7 @@ export class App extends Component {
         <ClickCounter />
         <ClickTracker />
         <InteractiveWelcome />
-        <Login />
+        <Login onLogin={this.onLogin} />
       </div>
     );
   }

@@ -15,9 +15,11 @@ export class Login extends Component {
       [name]: type === "checkbox" ? checked : value,
     });
   };
-  componentDidUpdate() {
-    console.log(this.state);
-  }
+
+  buttonclickHandler = (e) => {
+    e.preventDefault();
+    this.props.onLogin(this.state);
+  };
 
   render() {
     return (
@@ -41,7 +43,10 @@ export class Login extends Component {
             checked={this.state.remember}
             onChange={this.handleChange}
           ></input>
-          <button disabled={!this.state.username || !this.state.password}>
+          <button
+            onClick={this.buttonclickHandler}
+            disabled={!this.state.username || !this.state.password}
+          >
             Login
           </button>
         </form>
