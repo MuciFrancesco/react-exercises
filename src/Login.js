@@ -48,7 +48,10 @@ export class Login extends Component {
             checked={this.state.remember}
             onChange={this.handleChange}
           ></input>
-          <button disabled={!this.state.username || !this.state.password}>
+          <button
+            className={this.state.password.length < 8 ? "red-btn" : "green-btn"}
+            disabled={!this.state.username || !this.state.password}
+          >
             Login
           </button>
           <button type='button' onClick={this.resetForm}>

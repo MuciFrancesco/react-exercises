@@ -2,3 +2,11 @@
     background-color: beige;
     border: 3px solid red;
 }
+
+.red-btn {
+    background-color: red;
+}
+
+.green-btn {
+    background-color: green;
+}
