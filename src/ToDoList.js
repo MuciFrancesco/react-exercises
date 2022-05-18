@@ -24,6 +24,7 @@ export class ToDoList extends Component {
             <button onClick={this.inputReset} name='btn'>
               Inserisci
             </button>
+            <button type='reset'>Reset</button>
           </form>
         </div>
         <ul>{names}</ul>
