@@ -14,7 +14,7 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Container>
+        <Container title='My Awesome App!'>
           <Hello />
           <Welcome name='John' age='22' />
           <Counter initialValue={0} incrementBy={1} timeOut={1000} />
