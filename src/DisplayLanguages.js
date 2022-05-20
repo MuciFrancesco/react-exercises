@@ -10,9 +10,11 @@ export class DisplayLanguages extends Component {
             console.log(language);
             return (
               <div>
-                {language === "it"
-                  ? "Hai selezionato la lingua italiana"
-                  : "you have selected the English language"}
+                <h1>
+                  {language === "it"
+                    ? "Hai selezionato la lingua italiana"
+                    : "you have selected the English language"}
+                </h1>
               </div>
             );
           }}
