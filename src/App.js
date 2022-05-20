@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createContext } from "react";
 import Container from "./Container";
 import Hello from "./Hello";
 import Welcome from "./Welcome";
@@ -9,8 +9,18 @@ import { InteractiveWelcome } from "./InteractiveWelcome";
 import Login from "./Login";
 import UncontrolledLogin from "./UncontrolledLogin";
 import ToDoList from "./ToDoList";
+import LanguageContext from "./LanguageContext";
+import DisplayLanguages from "./DisplayLanguages";
 
 export class App extends Component {
+  state = {
+    language: "en",
+  };
+  languageChange = (event) => {
+    this.setState({
+      language: event.target.value,
+    });
+  };
   render() {
     return (
       <div>
@@ -46,6 +56,14 @@ export class App extends Component {
               );
             }}
           />
+
+          <LanguageContext.Provider value={this.state.language}>
+            <select value={this.state.language} onChange={this.languageChange}>
+              <option value='en'>English</option>
+              <option value='it'>Italiano</option>
+            </select>
+            <DisplayLanguages />
+          </LanguageContext.Provider>
         </Container>
       </div>
     );
