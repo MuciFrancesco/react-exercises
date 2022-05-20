@@ -23,7 +23,29 @@ export class App extends Component {
           <InteractiveWelcome />
           <Login />
           <UncontrolledLogin />
-          <ToDoList />
+          <ToDoList
+            render={(array) => {
+              const removeAtArray = (index) => {
+                const list = array;
+                list.splice(index, 1);
+                this.setState({ list });
+              };
+              return (
+                <div>
+                  <ul>
+                    {array.map((item, i) => (
+                      <>
+                        <li key={i}>{item}</li>
+                        <button onClick={() => removeAtArray(i)}>
+                          Ellimina
+                        </button>
+                      </>
+                    ))}
+                  </ul>
+                </div>
+              );
+            }}
+          />
         </Container>
       </div>
     );

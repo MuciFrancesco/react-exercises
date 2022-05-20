@@ -12,16 +12,12 @@ export class ToDoList extends Component {
     });
     e.target.reset();
   };
-  removeAtArray(index) {
-    const list = this.state.array;
-    list.splice(index, 1);
-    this.setState({ list });
-  }
 
   render() {
     return (
       <>
         <div className='insertIntoArray'>
+          {this.props.render(this.state.array)}
           <form onSubmit={this.insertIntoArray.bind(this)}>
             <label>Inserisci un elemento:</label>
             <input type='text' name='insert'></input>
@@ -29,22 +25,6 @@ export class ToDoList extends Component {
             <button type='reset'>Reset</button>
           </form>
         </div>
-        <ul>
-          {this.state.array.map((item, i) => {
-            return (
-              <>
-                <div>
-                  <li key={i}>
-                    {item}
-                    <button onClick={() => this.removeAtArray(i)}>
-                      Ellimina
-                    </button>
-                  </li>
-                </div>
-              </>
-            );
-          })}
-        </ul>
       </>
     );
   }
