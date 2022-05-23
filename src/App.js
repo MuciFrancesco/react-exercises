@@ -1,14 +1,11 @@
 import React from "react";
-import Counter from "./Counter";
+import IntervalCounter from "./IntervalCounter";
 
 function App() {
-  const onCounterChange = (counter) => {
-    console.log(`the counter is now${counter}`);
-  };
   return (
     <div className='App'>
       <>
-        <Counter onCounterChange={onCounterChange} />
+        <IntervalCounter />
       </>
     </div>
   );
