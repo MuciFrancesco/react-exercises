@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 
-function Counter({ onCounterChange }) {
-  const [counter, setCounter] = useState(0);
+function useCounter(initialValue = 0) {
+  const [counter, setCounter] = useState(initialValue);
   const counterIncrement = useCallback(() => {
     setCounter(counter + 1);
   }, [counter]);
@@ -11,11 +11,24 @@ function Counter({ onCounterChange }) {
   }, [counter]);
 
   const counterReset = () => {
-    setCounter(0);
+    setCounter(initialValue);
   };
   useEffect(() => {
-    onCounterChange(counter);
+    console.log(counter);
   }, [counter]);
+
+  return {
+    counter: counter,
+    counterIncrement: counterIncrement,
+    counterDecrement: counterDecrement,
+    counterReset: counterReset,
+  };
+}
+
+function Counter({ initialValue = 0 }) {
+  const { counter, counterIncrement, counterDecrement, counterReset } =
+    useCounter(initialValue);
+
   return (
     <div>
       <h2>Counter:{counter}</h2>
