@@ -1,11 +1,14 @@
 import React from "react";
-import Login from "./Login";
+import Counter from "./Counter";
 
 function App() {
+  const onCounterChange = (counter) => {
+    console.log(`the counter is now${counter}`);
+  };
   return (
     <div className='App'>
       <>
-        <Login />
+        <Counter onCounterChange={onCounterChange} />
       </>
     </div>
   );
