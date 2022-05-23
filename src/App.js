@@ -3,6 +3,7 @@ import GitHubUserList from "./GitHubUserList";
 import GitHubUsers from "./GitHubUsers";
 
 function App() {
+  const username = "MuciFrancesco";
   const [user, Setuser] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -24,8 +25,8 @@ function App() {
     }
   };
   useEffect(() => {
-    getData();
-  }, []);
+    getData(username);
+  }, [username]);
 
   return (
     <div className='App'>
@@ -39,7 +40,7 @@ function App() {
           loading={loading}
           error={error}
           data={data}
-          username={"MuciFrancesco"}
+          username={username}
         />
       </>
     </div>
