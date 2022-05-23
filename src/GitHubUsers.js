@@ -1,6 +1,6 @@
 import React from "react";
 
-function GitHubUsers({ username, data, loading, error }) {
+function GitHubUsers({ data, loading, error }) {
   return (
     <div>
       {loading && <h1>loading...</h1>}
