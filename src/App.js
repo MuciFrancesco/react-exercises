@@ -1,11 +1,11 @@
 import React from "react";
-import IntervalCounter from "./IntervalCounter";
+import GitHubUsers from "./GitHubUsers";
 
 function App() {
   return (
     <div className='App'>
       <>
-        <IntervalCounter />
+        <GitHubUsers username={"MuciFrancesco"} />
       </>
     </div>
   );
