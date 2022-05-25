@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import GitHubUsers from "./GitHubUsers";
 
-function GitHubUserList({ userList, loading, error, data }) {
+function GitHubUserList({ userList, data, error, loading }) {
   return (
     <div>
       {userList.map((user, i) => (
