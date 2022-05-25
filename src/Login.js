@@ -1,32 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import useLogin from "./useLogin";
 
 function Login() {
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-    remember: false,
-  });
-  const handleInputChange = (event) => {
-    const { name, type, value, checked } = event.target;
-    setData((data) => {
-      return {
-        ...data,
-        [name]: type === "checkbox" ? checked : value,
-      };
-    });
-  };
-  const buttonReset = (e) => {
-    e.preventDefault();
-    setData({
-      username: "",
-      password: "",
-      remember: false,
-    });
-  };
-  const consoleLogin = (e) => {
-    e.preventDefault();
-    console.log(data);
-  };
+  const { data, handleInputChange, consoleLogin, buttonReset } = useLogin();
   return (
     <div className='form-react'>
       <form>
