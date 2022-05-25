@@ -1,10 +1,10 @@
 import React from "react";
-import Login from "./Login";
+import GitHubUsers from "./GitHubUsers";
 function App() {
   return (
     <div className='App'>
       <>
-        <Login />
+        <GitHubUsers username={"MuciFrancesco"} />
       </>
     </div>
   );
