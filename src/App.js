@@ -14,25 +14,32 @@ function App() {
     setUser(value);
   };
   const updateList = () => {
-    setUserList([...userList, data]);
+    setUserList(() => [...userList, data]);
     console.log(userList);
   };
+
+  const getData = async () => {
+    try {
+      const response = await fetch(`https://api.github.com/users/${user}`);
+      const json = await response.json();
+      console.log(json);
+      setData(json);
+    } catch (error) {
+      setError(error);
+      setData(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     setLoading(true);
     setError(null);
-    (async () => {
-      try {
-        const response = await fetch(`https://api.github.com/users/${user}`);
-        const json = await response.json();
-        console.log(json);
-        setData(json);
-      } catch (error) {
-        setError(error);
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    })();
+    if (userList.includes(null)) {
+      return;
+    } else {
+      getData();
+    }
   }, [userList]);
   return (
     <div className='App'>
