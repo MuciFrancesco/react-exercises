@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useGitHubUsers from "./useGitHubUsers";
 
-function GitHubUsers({ username, data, loading, error }) {
+function GitHubUsers({ username }) {
+  const { data, loading, error } = useGitHubUsers(username);
+
   return (
     <div>
       {loading && <h1>loading...</h1>}
