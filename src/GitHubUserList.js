@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GitHubUsers from "./GitHubUsers";
 
-function GitHubUserList({ userList, data, error, loading }) {
+function GitHubUserList({
+  username,
+  fechUser,
+  updateInput,
+  updateList,
+  error,
+  loading,
+}) {
   return (
     <div>
-      {userList.map((user, i) => (
-        <GitHubUsers
-          key={i}
-          loading={loading}
-          error={error}
-          data={data}
-          username={user}
-        />
+      <div>
+        <label>Inserisci utente: </label>
+        <input value={username} onChange={updateInput} />
+        <button type='button' onClick={updateList}>
+          Aggiungi
+        </button>
+      </div>
+      {fechUser.map((user, i) => (
+        <GitHubUsers key={i} username={user} error={error} loading={loading} />
       ))}
     </div>
   );

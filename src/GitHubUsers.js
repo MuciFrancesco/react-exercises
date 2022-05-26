@@ -1,10 +1,10 @@
 import React from "react";
 
-function GitHubUsers({ data, username, loading, error }) {
+function GitHubUsers({ username, error, loading }) {
   return (
     <div>
       {loading && <h1>loading...</h1>}
-      {error && <h1>Sorry we have a problem !</h1>}
+      {error && <h1>We have some problem...sorry </h1>}
       <div>
         <h1>{username.name || "user not found"}</h1>
         <img src={username.avatar_url || "img not found"} alt='img-profile' />
