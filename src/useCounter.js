@@ -9,9 +9,9 @@ function useCounter(initialValue = 0) {
     setCounter(counter - 1);
   }, [counter]);
 
-  const counterReset = () => {
+  const counterReset = useCallback(() => {
     setCounter(initialValue);
-  };
+  }, [initialValue]);
   useEffect(() => {
     console.log(counter);
   }, [counter]);
