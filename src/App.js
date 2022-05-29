@@ -1,24 +1,15 @@
-import React, { useState } from "react";
-import LanguageContext from "./LanguageContext";
-import DisplayLanguages from "./DisplayLanguages";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Welcome from "./Welcome";
 
 function App() {
-  const [language, setLanguage] = useState("English");
-  const handleChangeLanguage = (e) => {
-    e.preventDefault();
-    setLanguage(e.target.value);
-  };
   return (
     <div className='App'>
-      <>
-        <select value={language} onChange={handleChangeLanguage}>
-          <option value='English'>English</option>
-          <option value='Italiano'>Italiano</option>
-        </select>
-        <LanguageContext.Provider value={language}>
-          <DisplayLanguages />
-        </LanguageContext.Provider>
-      </>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Welcome name='Andrea' />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
