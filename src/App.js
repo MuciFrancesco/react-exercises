@@ -8,7 +8,7 @@ function App() {
         {" "}
         <button>Go to Counter App</button>
       </Link>
-      <Link to=':username'>
+      <Link to='user:username'>
         {" "}
         <button>Go to gitHubUser App</button>
       </Link>
