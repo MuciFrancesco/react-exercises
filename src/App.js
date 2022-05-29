@@ -1,19 +1,21 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Welcome from "./Welcome";
-import Counter from "./Counter";
-import GitHubUsers from "./GitHubUsers";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <div className='App'>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Welcome name='Andrea' />}></Route>
-          <Route path='/counter' element={<Counter />}></Route>
-          <Route path='user/:username' element={<GitHubUsers />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Link to='/counter'>
+        {" "}
+        <button>Go to Counter App</button>
+      </Link>
+      <Link to=':username'>
+        {" "}
+        <button>Go to gitHubUser App</button>
+      </Link>
+      <Link to='/'>
+        {" "}
+        <button>Go to Main App</button>
+      </Link>
     </div>
   );
 }

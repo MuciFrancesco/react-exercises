@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function GitHubUsers() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { username } = useParams();
+  const { username = "MuciFrancesco" } = useParams();
 
   const getData = async (username) => {
     setLoading(true);
@@ -42,6 +42,17 @@ function GitHubUsers() {
           </button>
         </div>
       )}
+      <Link to='/welcome'>
+        {" "}
+        <button>Return to Welcome App</button>
+      </Link>
+      <Link to='/counter'>
+        {" "}
+        <button>Return to Counter App</button>
+      </Link>
+      <Link to='/'>
+        <button>Go to Main App</button>{" "}
+      </Link>
     </div>
   );
 }

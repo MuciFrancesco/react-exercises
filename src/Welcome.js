@@ -8,6 +8,9 @@ function Welcome({ name }) {
       <Link to='/counter'>
         <button>Go to counter App</button>{" "}
       </Link>
+      <Link to='/'>
+        <button>Go to Main App</button>{" "}
+      </Link>
     </div>
   );
 }

@@ -12,11 +12,14 @@ function Counter({ initialValue = 0 }) {
       <button onClick={counterIncrement}>Increment</button>
       <button onClick={counterDecrement}>Decrement</button>
       <button onClick={counterReset}>Reset</button>
-      <Link to='/:username'>
+      <Link to=':username'>
         <button>Go to gitHubUser App</button>
       </Link>
-      <Link to='/'>
+      <Link to='/welcome'>
         <button>Return to Welcome App</button>
+      </Link>
+      <Link to='/'>
+        <button>Go to Main App</button>{" "}
       </Link>
     </div>
   );
