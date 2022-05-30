@@ -2,7 +2,7 @@ import React from "react";
 import useGitHubUsers from "./useGitHubUsers";
 
 function GitHubUsers({ username }) {
-  const { data, error } = useGitHubUsers(username);
+  const { data, error, handleReloadData } = useGitHubUsers(username);
 
   return (
     <div>
@@ -18,6 +18,7 @@ function GitHubUsers({ username }) {
               Visita il mio GitHub
             </a>
           </button>
+          <button onClick={handleReloadData}>Refresh user</button>
         </div>
       )}
     </div>
