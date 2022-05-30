@@ -6,7 +6,7 @@ function GitHubUsers({ username }) {
 
   return (
     <div>
-      {!data && !error && <h1>loading...</h1>}
+      {!data && !error && null}
       {error && <h1>Sorry we have a problem !</h1>}
       {data && !error && (
         <div>
