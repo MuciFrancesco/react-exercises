@@ -5,7 +5,7 @@ import Welcome from "./Welcome";
 import Counter from "./Counter";
 import GitHubUserList from "./GitHubUserList";
 import NotFound from "./NotFound";
-import ShowGitHubUser from "./ShowGithubUser";
+import GitHubUsers from "./GitHubUsers";
 
 function Root() {
   return (
@@ -15,13 +15,10 @@ function Root() {
         <Route path='/' element={<App />}></Route>
         <Route path='/welcome' element={<Welcome name='Andrea' />}></Route>
         <Route path='/counter' element={<Counter />}></Route>
-        <Route path='user' element={<GitHubUserList />}>
-          <Route
-            index={true}
-            element={<h1>Add a user and select it</h1>}
-          ></Route>
-          <Route path=':username' element={<ShowGitHubUser />}></Route>
-        </Route>
+        <Route
+          path='user'
+          element={<GitHubUsers username={"MuciFrancesco"} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

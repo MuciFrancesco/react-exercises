@@ -1,36 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useGitHubUsers from "./useGitHubUsers";
 
 function GitHubUsers({ username }) {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch(
-          `https://api.github.com/users/${username}`
-        );
-        const json = await response.json();
-        console.log(json);
-        setData(json);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [username]);
+  const { data, error } = useGitHubUsers(username);
 
   return (
     <div>
-      {loading && <h1>Loading...</h1>}
-      {error && <h1>Sorry we have some problem!</h1>}
-      {data && (
+      {!data && !error && <h1>loading...</h1>}
+      {error && <h1>Sorry we have a problem !</h1>}
+      {data && !error && (
         <div>
-          <h1>{data.name || "user not found"}</h1>
-          <img src={data.avatar_url || "img not found"} alt='img-profile' />
-          <p>{data.bio || "bio not found "}</p>
+          <h1>{data.name}</h1>
+          <img src={data.avatar_url} alt='img-profile' />
+          <p>{data.bio}</p>
           <button>
             <a href={data.html_url} target='_blank' rel='noreferrer'>
               Visita il mio GitHub
