@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import GitHubUserList from "./GitHubUserList";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
         {" "}
         <button>Go to Counter App</button>
       </Link>
-      <Link to='user:username'>
+      <Link to='user'>
         {" "}
         <button>Go to gitHubUser App</button>
       </Link>
