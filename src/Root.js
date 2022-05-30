@@ -16,6 +16,10 @@ function Root() {
         <Route path='/welcome' element={<Welcome name='Andrea' />}></Route>
         <Route path='/counter' element={<Counter />}></Route>
         <Route path='user' element={<GitHubUserList />}>
+          <Route
+            index={true}
+            element={<h1>Add a user and select it</h1>}
+          ></Route>
           <Route path=':username' element={<ShowGitHubUser />}></Route>
         </Route>
       </Routes>
