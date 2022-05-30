@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
-function GitHubUsers() {
+function GitHubUsers({ username }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { username } = useParams();
 
   const getData = async (username) => {
     setLoading(true);

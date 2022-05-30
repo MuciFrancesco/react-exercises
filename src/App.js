@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Welcome from "./Welcome";
 import Counter from "./Counter";
-import GitHubUsers from "./GitHubUsers";
+import ShowGitHubUser from "./ShowGitHubUser";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Welcome name='Andrea' />}></Route>
           <Route path='/counter' element={<Counter />}></Route>
-          <Route path='user/:username' element={<GitHubUsers />}></Route>
+          <Route path='user/:username' element={<ShowGitHubUser />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
