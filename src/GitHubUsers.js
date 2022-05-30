@@ -1,22 +1,43 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-function GitHubUsers({ username, error, loading }) {
-  const { user } = useParams();
+function GitHubUsers({ username }) {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch(
+          `https://api.github.com/users/${username}`
+        );
+        const json = await response.json();
+        console.log(json);
+        setData(json);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [username]);
+
   return (
     <div>
-      {loading && <h1>loading...</h1>}
-      {error && <h1>We have some problem...sorry </h1>}
-      <div>
-        <h1>{username.name || "user not found"}</h1>
-        <img src={username.avatar_url || "img not found"} alt='img-profile' />
-        <p>{username.bio || "bio not found "}</p>
-        <button>
-          <a href={username.html_url} target='_blank' rel='noreferrer'>
-            Visita il mio GitHub
-          </a>
-        </button>
-      </div>
+      {loading && <h1>Loading...</h1>}
+      {error && <h1>Sorry we have some problem!</h1>}
+      {data && (
+        <div>
+          <h1>{data.name || "user not found"}</h1>
+          <img src={data.avatar_url || "img not found"} alt='img-profile' />
+          <p>{data.bio || "bio not found "}</p>
+          <button>
+            <a href={data.html_url} target='_blank' rel='noreferrer'>
+              Visita il mio GitHub
+            </a>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

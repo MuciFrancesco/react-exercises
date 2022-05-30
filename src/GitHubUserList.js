@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import GitHubUsers from "./GitHubUsers";
+import React, { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 
 function GitHubUserList() {
   const [userList, setUserList] = useState([]);
   const [username, setUser] = useState("");
-  const [fechUser, setFechUser] = useState([]);
-
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const lastUser =
-    userList[userList.length - 1] === userList[userList.length - 2] ||
-    userList[userList.length - 1] === ""
-      ? null
-      : userList[userList.length - 1];
 
   const updateInput = (event) => {
     const value = event.target.value;
@@ -25,24 +14,6 @@ function GitHubUserList() {
     setUser("");
   };
 
-  useEffect(() => {
-    if (lastUser != null) {
-      (async () => {
-        try {
-          const response = await fetch(
-            `https://api.github.com/users/${lastUser}`
-          );
-          const json = await response.json();
-          console.log(json);
-          setFechUser((prevUser) => [...prevUser, json]);
-        } catch (error) {
-          setError(error);
-        } finally {
-          setLoading(false);
-        }
-      })();
-    }
-  }, [lastUser]);
   return (
     <div>
       <div>
@@ -52,9 +23,14 @@ function GitHubUserList() {
           Aggiungi
         </button>
       </div>
-      {fechUser.map((user, i) => (
-        <GitHubUsers key={i} username={user} error={error} loading={loading} />
+      {userList.map((user, i) => (
+        <>
+          <li key={i}>
+            <Link to={`/user/${user}`}>{user}</Link>
+          </li>
+        </>
       ))}
+      <Outlet />
     </div>
   );
 }
