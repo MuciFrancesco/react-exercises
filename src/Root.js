@@ -15,10 +15,7 @@ function Root() {
         <Route path='/' element={<App />}></Route>
         <Route path='/welcome' element={<Welcome name='Andrea' />}></Route>
         <Route path='/counter' element={<Counter />}></Route>
-        <Route
-          path='user'
-          element={<GitHubUsers username={"MuciFrancesco"} />}
-        ></Route>
+        <Route path='user' element={<GitHubUsers username={null} />}></Route>
       </Routes>
     </BrowserRouter>
   );
