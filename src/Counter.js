@@ -1,26 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import useCounter from "./useCounter";
+import { useSelector, useDispatch } from "react-redux";
+import counterState from "./state/CounterReducer";
 
-function Counter({ initialValue = 0 }) {
-  const { counter, counterIncrement, counterDecrement, counterReset } =
-    useCounter(initialValue);
+function Counter() {
+  const counter = useSelector((state) => state.counter);
+  const dispach = useDispatch();
+
+  const handleCounterIncrement = () => {
+    dispach(counterState.actions.increment(1));
+  };
+  const handleCounterDecrement = () => {
+    dispach(counterState.actions.decrement(1));
+  };
+  const handleCounterReset = () => {
+    dispach(counterState.actions.reset());
+  };
 
   return (
     <div>
-      <h2>Counter:{counter}</h2>
-      <button onClick={counterIncrement}>Increment</button>
-      <button onClick={counterDecrement}>Decrement</button>
-      <button onClick={counterReset}>Reset</button>
-      <Link to='user:username'>
-        <button>Go to gitHubUser App</button>
-      </Link>
-      <Link to='/welcome'>
-        <button>Return to Welcome App</button>
-      </Link>
-      <Link to='/'>
-        <button>Go to Main App</button>{" "}
-      </Link>
+      <h2>Current value :{counter}</h2>
+      <button onClick={handleCounterIncrement}>Increment</button>
+      <button onClick={handleCounterDecrement}>Decrement</button>
+      <button onClick={handleCounterReset}>Reset</button>
     </div>
   );
 }
