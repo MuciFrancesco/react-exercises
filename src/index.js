@@ -13,7 +13,7 @@ root.render(
 );
 
 store.subscribe(() => {
-  console.log(store.getState());
+  console.log("I'm changing", store.getState());
 });
 
 store.dispatch(addTodo({ id: 1, title: "Studying React", completed: true }));
