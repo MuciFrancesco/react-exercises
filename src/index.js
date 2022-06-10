@@ -1,8 +1,16 @@
 import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { store } from "./state/Store";
 import { addTodo, editTodo, removeTodo } from "./state/TodosReducer";
+import Root from "./Root";
 
-const root = document.querySelector("#root");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <Root />
+  </React.StrictMode>
+);
 
 store.subscribe(() => {
   console.log(store.getState());
